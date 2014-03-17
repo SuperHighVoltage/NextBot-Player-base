@@ -1,5 +1,4 @@
 
-
 AddCSLuaFile()
 
 ENT.Base 			= "base_playerbot"
@@ -75,14 +74,14 @@ function ENT:BotThink( fInterval )
 		net.WriteString( self:GetName() )
 		net.WriteVector( self:GetPos()+Vector(0,0,90) )
 		net.WriteAngle( self:GetAngles()+Angle(0,90,90) )
-		net.WriteLong( self:Health() )
-		net.WriteLong( self:Armor() or 0 )
+		net.WriteFloat( self:Health() )
+		net.WriteFloat( self:Armor() or 0 )
 		net.WriteEntity( self.Weapon or nil )
 		local clip1 = -1
 		if self.Weapon and self.Weapon:IsValid() and self.Weapon:Clip1() then
 			clip1 = self.Weapon:Clip1() or -1
 		end
-		net.WriteLong( clip1 )
+		net.WriteFloat( clip1 )
 	net.Broadcast() // Send it to all players.
 	end
 	if Entity(1):KeyPressed(IN_USE) then
