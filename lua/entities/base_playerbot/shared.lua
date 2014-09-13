@@ -1,4 +1,3 @@
-
 AddCSLuaFile()
 
 ENT.Base 			= "base_entity"
@@ -39,12 +38,13 @@ else
 //		MsgN( "TEST 2: Received message of ", length, " bits..." )
            
 		   
-		local name		= net.ReadString()
-		local pos		= net.ReadVector()
-		local ang		= net.ReadAngle()
-		local health	= net.ReadLong()
-		local armor		= net.ReadLong()
+		local name	= net.ReadString()
+		local pos	= net.ReadVector()
+		local ang	= net.ReadAngle()
+		local health	= net.ReadFloat()
+		local armor	= net.ReadFloat()
 		local weapon	= net.ReadEntity()
+		local clip1	= net.ReadFloat()
 --[[		Msg( "Name: " )
 		MsgN( name )
 		Msg( "Pos: " )
